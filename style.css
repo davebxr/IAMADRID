@@ -1,0 +1,254 @@
+/* --- ESTILOS GENERALES DEL SITIO --- */
+
+/* [ ESTILOS BASE ] */
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0018; 
+    color: white;
+    overflow-x: hidden;
+    padding-top: 80px; 
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, #19002a, #0a0018);
+    z-index: -1;
+}
+
+/* [ HEADER & NAV ] */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 0, 40, 0.6); 
+    box-shadow: 0 0 20px rgba(140, 60, 255, 0.4);
+    z-index: 1000;
+    transition: background 0.4s ease, box-shadow 0.4s ease; 
+}
+header.scrolled {
+    background: #4a148c; 
+    box-shadow: 0 0 25px rgba(180, 120, 255, 0.6);
+}
+nav a {
+    position: relative;
+    color: #e4ddff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #8b3dff, #b28cff);
+    transition: width 0.3s ease;
+}
+nav a:hover, nav a.active {
+    color: white;
+    text-shadow: 0 0 10px #a56bff;
+}
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+/* [ BOTONES Y TEXTO ] */
+.btn-main {
+    background: linear-gradient(90deg, #8b3dff, #b28cff);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(180, 120, 255, 0.5);
+}
+.btn-main:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(200, 140, 255, 0.8);
+}
+.btn-secondary {
+    border: 1px solid #a56bff;
+    color: #e4ddff;
+    padding: 11px 27px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    background-color: #a56bff;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(165, 107, 255, 0.6);
+}
+.glow-text {
+    background: linear-gradient(90deg, #a36bff, #ffffff, #d5b3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(163, 107, 255, 0.4);
+}
+
+/* [ HERO Y ANIMACIÓN ] */
+.hero {
+    position: relative; 
+    padding-top: 80px; 
+    padding-bottom: 120px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 0, 24, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(-100%);
+    z-index: 998;
+}
+.mobile-menu.open {
+    transform: translateY(0);
+}
+
+/* --- ESTILOS DEL FOOTER --- */
+.footer-map-container {
+    overflow: hidden;
+    border-radius: 0;
+    border: none;
+}
+.footer-link:hover {
+    color: #b28cff;
+}
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.2); 
+}
+.contact-info-item:last-child {
+    border-bottom: none;
+}
+
+
+/* --- [ ESTILOS DEL MODAL DE CONTACTO (MEJORADOS) ] --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-content {
+    background: #1e0037; 
+    background: linear-gradient(135deg, #2a0045, #1e0037);
+    /* Aumento de padding para mejor espaciado */
+    padding: 50px 30px 30px 30px; 
+    border-radius: 16px; 
+    width: 90%;
+    max-width: 480px; 
+    position: relative;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+.modal.open .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+.close-btn-beta { 
+    position: absolute;
+    /* Ajuste de posición para separarlo del borde superior */
+    top: 10px; 
+    right: 10px;
+    background: none; 
+    color: #e4ddff; 
+    border: none;
+    padding: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    z-index: 2001; /* Asegura que siempre esté por encima del contenido */
+}
+.close-btn-beta:hover {
+    background-color: rgba(124, 58, 237, 0.2);
+    color: white;
+}
+/* Estilo del Header del modal para asegurar el espaciado del h1 y la X */
+.modal-content header {
+    /* Agrega margen inferior para separar el título del formulario */
+    margin-bottom: 1.5rem; 
+    /* Asegura que el header tenga un espacio superior consistente */
+    padding-top: 10px; 
+}
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 8px; 
+    border: 1px solid #3e0066; 
+    background-color: #110022; 
+    color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-field:focus {
+    border-color: #b28cff;
+    outline: none;
+}
+.input-field::placeholder {
+    color: #b28cff; 
+}
+.beta-h1 {
+    color: #d5b3ff; 
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.modal-subtitle {
+    text-align: center;
+    color: #b28cff;
+    margin-bottom: 0px; 
+    height: 0; 
+    overflow: hidden;
+}

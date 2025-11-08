@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Connect Madrid - Equipo</title>
+    
+    <link rel="icon" type="ico" href="images\fotos\ico.png"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.open {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .course-image-container {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .course-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .course-image-container img {
+            transform: scale(1.05);
+        }
+
+
+        .details-modal-content {
+            background: #1e0037; 
+            background: linear-gradient(135deg, #2a0045, #1e0037);
+            padding: 30px; 
+            border-radius: 16px; 
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+        .details-modal-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d5b3ff;
+            margin-bottom: 1rem;
+        }
+        .details-modal-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        .details-modal-content ul li {
+            background-color: #4a148c;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="flex justify-between items-center px-6 md:px-12 py-4" id="main-header">
+        <div class="flex items-center space-x-3 z-50">
+            <img src="images\fotos\logo.png" alt="Logo AI Connect Madrid" class="w-11 h-14">
+            <h1 class="text-xl font-bold">AI Connect Madrid</h1>
+        </div>
+        
+        <nav class="space-x-8 hidden md:flex">
+            <a href="index.html">Inicio</a>
+            <a href="beneficios.html">Beneficios</a>
+            <a href="cursos.html" >Cursos</a>
+            <a href="equipo.html" class="active">Equipo</a>
+        </nav>
+        
+        <button id="open-modal-nav" class="btn-main hidden md:block">Contáctanos</button>
+        
+        <div class="md:hidden z-[1001]" id="menu-button">
+            <button class="text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html" class="mobile-link">Inicio</a>
+        <a href="beneficios.html" class="mobile-link">Beneficios</a>
+        <a href="cursos.html" class="mobile-link">Cursos</a>
+        <a href="equipo.html" class="mobile-link">Equipo</a>
+        <a href="#" class="mobile-link" id="open-modal-mobile">Contacto</a>
+    </div>
+
+<main>
+        <section id="equipo-page" class="py-20 px-6 md:px-20 text-center section-dark">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-extrabold mb-4 glow-text">Conoce a Nuestros Fundadores</h2>
+                <p class="text-purple-200 max-w-3xl mx-auto text-xl">Somos expertos en tecnología con la misión de democratizar la Inteligencia Artificial.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                
+                <div class="card">
+                    <img src="images\fotos\david.jpg" class="member-photo mx-auto mb-4 border-4 border-purple-500 shadow-xl" alt="David Acosta">
+                    <h3 class="text-2xl font-semibold">David Acosta</h3>
+                    <p class="text-purple-400">Fundador y Líder de Innovación IA</p>
+                    <p class="text-purple-200 mt-3">Apasionado por conectar personas con la tecnología.</p>
+                </div>
+                
+                <div class="card">
+                    <img src="images\fotos\cristian.jpg" class="member-photo mx-auto mb-4 border-4 border-purple-500 shadow-xl" alt="Cristian Ortiz">
+                    <h3 class="text-2xl font-semibold">Cristian Ortiz</h3>
+                    <p class="text-purple-400">Fundador y Experto en Automatización</p>
+                    <p class="text-purple-200 mt-3">Convierte la inteligencia artificial en soluciones reales y eficientes.</p>
+                </div>
+                
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-black/20 pt-12 pb-8">
+        <div class="container mx-auto flex flex-col lg:flex-row p-6 md:p-10 lg:space-x-12">
+            
+            <div class="w-full lg:w-1/2 mb-8 lg:mb-0 footer-map-container">
+                <div class="rounded-lg shadow-2xl">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15873.91428277641!2d-74.28823337351614!3d4.852709282362098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f94532c1c38e9%3A0x1d473463a5628540!2sMadrid%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1701388487739!5m2!1ses!2sco" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-lg"
+                    ></iframe>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 flex flex-col justify-between">
+                
+                <div class="mt-4 lg:mt-0 p-6 bg-black/30 rounded-xl">
+                    <h3 class="text-3xl font-extrabold glow-text mb-6 text-center">Contáctanos</h3>
+                    
+                    <button id="open-modal-footer-simplified" class="btn-main w-full mb-8">
+                        Enviar un Mensaje Ahora
+                    </button>
+
+                    <h4 class="text-xl font-bold text-purple-300 mb-4 pt-2 border-b border-purple-500/20 pb-2">Información de Contacto</h4>
+                    <div class="text-sm text-purple-200 space-y-2">
+                        
+                        <div class="contact-info-item">
+                            <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <p>Calle 7 # 5-19 Madrid Cundinamarca</p>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.43c-1.16 0-2.32-.23-3.41-.68-.86-.34-1.92-.12-2.7.67l-1.4 1.4c-2.38-1.55-4.57-3.74-6.12-6.12l1.4-1.4c.79-.78 1.01-1.84.67-2.7-.45-1.09-.68-2.25-.68-3.41 0-1.1.9-2 2-2h3.5c1.1 0 2 .9 2 2 0 1.15-.22 2.32-.67 3.41-.34.86-.12 1.92.67 2.7l.7.7c.32.32.5.75.5 1.2s-.18.88-.5 1.2l-.7.7c-.45.45-1.09.68-1.74.68zM5 4h3.5c-.2 1.2-.2 2.4-.2 3.5l1 1c.2.2.4.4.7.7l.7.7c.3.3.6.5.9.6l.7.7c.1.1.2.2.3.3l.7.7c.3.3.6.5.9.6l.7.7c.3.3.6.5.9.6l.7.7c.3.3.6.5.9.6z"/></svg>
+                            <p>311 202 5743</p>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <p>Correo: <a href="mailto:acostabernaledgardavid14@gmail.com" class="text-white hover:text-purple-400 transition">acostabernaledgardavid14@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn-beta" id="close-modal-btn" onclick="closeModal('contact-modal')"> 
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <header class="mb-6">
+                <h1 class="beta-h1">HABLEMOS DE TUS IDEAS</h1>
+                <p class="modal-subtitle">Estamos listos para impulsar tu proyecto con IA.</p> 
+            </header>
+
+            <form action="#" method="POST" class="text-left">
+                <input type="text" id="nombre-modal" name="nombre" placeholder="Tu Nombre o Empresa" class="input-field" required>
+                <input type="email" id="email-modal" name="email" placeholder="Tu Correo Electrónico" class="input-field" required>
+                
+                <select id="issue-type" name="issue_type" class="input-field" required>
+                    <option value="" disabled selected>Selecciona el Área de Interés</option>
+                    <option value="curso">AREA: Cursos y Capacitación</option>
+                    <option value="general">AREA: Consulta General</option>
+                </select>
+
+                <textarea id="mensaje-modal" name="mensaje" rows="4" placeholder="Describe brevemente tu solicitud o proyecto..." class="input-field" required></textarea>
+                
+                <p class="text-xs text-purple-300 mb-4 text-center">Tus datos están protegidos. Te responderemos lo antes posible.</p>
+                
+                <button type="submit" class="btn-main w-full">ENVIAR SOLICITUD</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="details-modal" class="modal">
+        <div class="details-modal-content">
+             <button class="close-btn-beta" onclick="closeModal('details-modal')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h3 id="details-modal-title">Título del Curso</h3>
+            <p id="details-modal-description" class="text-purple-100 mb-4">Descripción detallada del curso...</p>
+            
+            <h4 class="text-xl font-bold text-purple-300 mb-2">Puntos Clave:</h4>
+            <ul id="details-modal-topics">
+                </ul>
+            
+            <button id="open-contact-from-details" class="btn-main w-full mt-6">Inscribete</button>
+        </div>
+    </div>
+
+    <script>
+        const coursesData = {
+            1: {
+                title: "IA para Negocios",
+                description: "...",
+                topics: []
+            },
+            2: {
+                title: "Automatización Inteligente",
+                description: "...",
+                topics: []
+            }
+        };
+
+
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const mainHeader = document.getElementById('main-header'); 
+
+        const contactModal = document.getElementById('contact-modal');
+        const detailsModal = document.getElementById('details-modal');
+        const openModalContactButtons = document.querySelectorAll('#open-modal-nav, #open-modal-footer-simplified, #open-modal-mobile');
+        
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('open');
+            if (!contactModal.classList.contains('open') && !detailsModal.classList.contains('open')) {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { 
+                mainHeader.classList.add('scrolled');
+            } else {
+                mainHeader.classList.remove('scrolled');
+            }
+        });
+
+        openModalContactButtons.forEach(button => button.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            openModal('contact-modal');
+            if(button.id === 'open-modal-mobile') {
+                mobileMenu.classList.remove('open');
+            }
+        }));
+        
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeModal('contact-modal');
+            }
+        });
+
+        detailsModal.addEventListener('click', (e) => {
+            if (e.target === detailsModal) {
+                closeModal('details-modal');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (detailsModal.classList.contains('open')) {
+                    closeModal('details-modal');
+                } else if (contactModal.classList.contains('open')) {
+                    closeModal('contact-modal');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
